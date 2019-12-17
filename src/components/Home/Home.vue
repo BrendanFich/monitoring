@@ -1,18 +1,17 @@
-/* eslint-disable no-tabs */
 <template>
   <div class="home">
     <div class="header">
       <div class="left">
         <div class="title">南海区医院联网纪检检察系统</div>
         <ul class="nav">
-          <li :class="{active: activeIndex===0}"><i class=""></i>首页</li>
-          <li :class="{active: activeIndex===1}"><i class=""></i>刷新</li>
-          <li :class="{active: activeIndex===2}"><i class=""></i>插件更新</li>
-          <li :class="{active: activeIndex===3}"><i class=""></i>帮助</li>
-          <li :class="{active: activeIndex===4}"><i class=""></i>退出</li>
+          <li :class="{active: this.$route.fullPath==='/home/nav'}" @click="toIndex"><i class=""></i>首页</li>
+          <li><i class=""></i>刷新</li>
+          <li><i class=""></i>插件更新</li>
+          <li><i class=""></i>帮助</li>
+          <li><i class=""></i>退出</li>
         </ul>
       </div>
-      <el-input
+      <!-- <el-input
         placeholder="请输入内容"
         v-model="input"
         class="input-with-select"
@@ -23,9 +22,15 @@
           <el-option label="法规查询" value="3"></el-option>
         </el-select>
         <el-button slot="append" icon="el-icon-search"></el-button>
-      </el-input>
+      </el-input> -->
     </div>
     <router-view></router-view>
+    <div class="suggest" v-if="!isHidden">
+      <i class="el-icon-circle-close" @click="isHidden = true"></i>
+      <div class="text">在线意见</div>
+      <img src="./img/suggest.png">
+    </div>
+    <div class="minimize" v-if="isHidden" @click="isHidden = false"><i class="icon-down"></i></div>
   </div>
 </template>
 
@@ -34,12 +39,17 @@ export default {
   name: 'Login',
   data () {
     return {
+      isHidden: false,
       activeIndex: 0,
       select: '',
       input: ''
     }
   },
-  methods: {}
+  methods: {
+    toIndex () {
+      this.$router.push('/home')
+    }
+  }
 }
 </script>
 
@@ -88,4 +98,52 @@ export default {
       border-radius: 0 22px 22px 0
       border: none
       background-color: $color-bg-white
+  .suggest
+    position: fixed
+    bottom: 375px
+    right: 20px
+    width: 50px
+    height: 50px
+    display: flex
+    justify-content: center
+    align-items: center
+    background: $color-bg-white
+    border: 2px solid $color-primary
+    border-radius: 3px
+    img
+      width: 28px
+      margin-left: 3px
+    .text
+      width: 28px
+      padding: 11px
+      @include font(14px, 400, $color-word-white)
+      cursor: pointer
+      display: none
+    i
+      display: none
+      cursor: pointer
+      background: $color-bg-white
+      border-radius: 50%
+      @include font(20px, 400, $color-primary)
+      position: absolute
+      top: -8px
+      right: -8px
+      z-index: 1001
+    &:hover
+      background: $color-primary
+      .text,i
+        display: block
+      img
+        display: none
+  .minimize
+    position: fixed
+    top: 300px
+    right: 0
+    width: 35px
+    height: 35px
+    cursor: pointer
+    text-align: center
+    line-height: 35px
+    color: $color-word-white
+    background: $color-primary
 </style>
