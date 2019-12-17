@@ -21,7 +21,7 @@
       <div class="navBox">
         <div class="boxTitle">
           <span>智能监督</span>
-          <div class="line"></div>
+          <el-divider></el-divider>
         </div>
         <ul class="boxContent">
           <router-link
@@ -38,7 +38,7 @@
       <div class="navBox">
         <div class="boxTitle">
           <span>专项监督</span>
-          <div class="line"></div>
+          <el-divider></el-divider>
         </div>
         <ul class="boxContent">
           <router-link
@@ -223,8 +223,10 @@ export default {
         margin-left: 21px
         font-size: 18px
     .navBox
-      margin-bottom: 55px
+      margin-bottom: 35px
       .boxTitle
+        display: flex
+        align-items: center
         span
           background: $color-bg-menu
           width: 100px
@@ -232,12 +234,12 @@ export default {
           text-align: center
           line-height: 46px
           border-radius: 23px
-          margin: 0 23px 10px 27px
+          margin: 0 23px 0 27px
           display: inline-block
-        .line
+        .el-divider
           display: inline-block
-          width: 1400px
-          border-bottom: 1px solid $color-border-grey
+          margin-right: 150px
+          flex: 1
       .boxContent
         margin-left: 40px
         width: 1010px

@@ -8,13 +8,18 @@
         <i class="el-icon-location-outline"></i>
         <span class="text">当前位置：首页 - 培训讲座</span>
       </div>
-      <el-input
-        placeholder="讲师姓名/课程"
-        v-model="input"
-        class="input-with-select"
-      >
+      <el-input placeholder="讲师姓名/课程" v-model="input" class="input-with-select">
         <el-button slot="append" icon="el-icon-search"></el-button>
       </el-input>
+      <div class="new">
+        <div class="title">最新发布</div>
+        <ul>
+          <li>
+            <div class="videoCover"></div>
+            <div class="videoName">联网纪检监察</div>
+          </li>
+        </ul>
+      </div>
       <div class="footer">
         <el-pagination
           @size-change="handleSizeChange"
@@ -25,8 +30,7 @@
           layout="sizes, prev, pager, next"
           :total="1000"
           background
-        >
-        </el-pagination>
+        ></el-pagination>
       </div>
     </main>
   </div>
@@ -108,4 +112,5 @@ export default {
     .footer
       text-align: center
       margin-top: 20px
+      margin-bottom: 30px
 </style>

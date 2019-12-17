@@ -124,13 +124,15 @@ export default {
     top: 100px
     width: calc(100% - 200px)
     height: calc(100vh - 100px)
+    display: flex
+    flex-direction: column
     .location
       margin: 20px 0 20px 29px
       @include font(14px, 400, $color-word-grey)
       i
         @include font(14px, 600, $color-deep-blue)
     .content
-      height: 660px
+      flex: 1
       margin: 0 30px 0 15px
       li
         height: 50px
@@ -147,5 +149,5 @@ export default {
           margin-right: 20px
     .footer
       text-align: center
-      margin-top: 20px
+      margin-bottom: 30px
 </style>
