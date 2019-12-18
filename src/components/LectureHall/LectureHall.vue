@@ -8,18 +8,38 @@
           <i class="el-icon-d-arrow-left" @click="back"></i>
         </div>
       </div>
-      <el-tree
-        :data="data"
-        node-key="id"
-        :props="defaultProps"
-        @node-click="handleNodeClick"
-        :default-expanded-keys="[1, 1]"
+      <el-menu
+        default-active="1-3"
+        :unique-opened="true"
+        background-color="transparent"
+        text-color="#333333FF"
+        active-text-color="#6699FFFF"
       >
-        <span slot-scope="{ node, data }">
-          <i :class="data.icon"></i>
-          <span style="padding-left: 4px;">{{ node.label }}</span>
-        </span>
-      </el-tree>
+        <el-submenu index="1">
+          <template slot="title">
+            <i class="icon-open" style="color:#fed630"></i>
+            <span>全部</span>
+          </template>
+          <el-menu-item index="1-1"
+            ><template slot="title">
+              <i class="icon-doc" style="color:#ffc665"></i>
+              <span>监督讲堂学习文档</span>
+            </template></el-menu-item
+          >
+          <el-menu-item index="1-2"
+            ><template slot="title">
+              <i class="icon-doc" style="color:#ffc665"></i>
+              <span>医院安全培训</span>
+            </template></el-menu-item
+          >
+          <el-menu-item index="1-3"
+            ><template slot="title">
+              <i class="icon-doc" style="color:#ffc665"></i>
+              <span>医患关系</span>
+            </template></el-menu-item
+          >
+        </el-submenu>
+      </el-menu>
     </aside>
     <main>
       <div class="location">
@@ -60,13 +80,13 @@
       <el-table
         class="table"
         :data="tableData"
-        style="width: 1500px"
+        style="width: 100%"
         :header-cell-style="{
-            background: '#F4F4F4FF',
-            color: '#333333FF',
-            'border-top': '1px solid #DDDDDDFF',
-            'border-bottom': '1px solid #DDDDDDFF'
-          }"
+          background: '#F4F4F4FF',
+          color: '#333333FF',
+          'border-top': '1px solid #DDDDDDFF',
+          'border-bottom': '1px solid #DDDDDDFF'
+        }"
       >
         <el-table-column type="selection" width="100px"></el-table-column>
         <el-table-column prop="title" label="标题"></el-table-column>
@@ -75,8 +95,16 @@
             <span style="color:#6699FFFF">{{ scope.row.type }}</span>
           </template>
         </el-table-column>
-        <el-table-column prop="year" label="年份" align="center"></el-table-column>
-        <el-table-column prop="inputTime" label="录入时间" align="center"></el-table-column>
+        <el-table-column
+          prop="year"
+          label="年份"
+          align="center"
+        ></el-table-column>
+        <el-table-column
+          prop="inputTime"
+          label="录入时间"
+          align="center"
+        ></el-table-column>
       </el-table>
       <div class="footer">
         <el-pagination
@@ -98,31 +126,7 @@
 export default {
   data () {
     return {
-      currentPage: 5,
-      data: [
-        {
-          label: '全部',
-          id: '1',
-          icon: 'icon-open',
-          children: [
-            {
-              id: '2',
-              label: '监督讲堂学习文档',
-              icon: 'icon-doc'
-            },
-            {
-              id: '3',
-              label: '医院安全培训',
-              icon: 'icon-doc'
-            },
-            {
-              id: '4',
-              label: '医患关系',
-              icon: 'icon-doc'
-            }
-          ]
-        }
-      ],
+      currentPage: 1,
       tableData: [
         {
           title: ' 医院安全知识',
@@ -188,17 +192,12 @@ export default {
       @include font(18px, 400, $color-word-white)
       i
         cursor: pointer
-    .el-tree
-      background: transparent
-      font-size: 14px
-      >>>.el-tree-node__content
-        height: 44px
-      >>>.el-tree-node__children>.is-current
-        color: $color-word-blue
-      >>>.icon-open
-        color: #fed630
-      >>>.icon-doc
-        color: #ffc665
+    >>>.el-menu-item
+      height: 40px
+      line-height: 40px
+    >>>.el-submenu__title
+      height: 40px
+      line-height: 40px
   main
     position: absolute
     left: 200px
@@ -220,10 +219,14 @@ export default {
       .left
         .btn
           @include font(14px, 400, $color-word-black)
-          >>>i
-            display: inline-block
-            @include font(14px, 400, $color-deep-blue)
-            margin-bottom: -5px
+          padding: 8px 10px
+          >>>span
+            display: flex
+            align-items: center
+            i
+              display: block
+              @include font(16px, 400, $color-deep-blue)
+              margin-right: 5px
       .right
         margin-right: 64px
         li
@@ -234,7 +237,8 @@ export default {
         .el-divider
           background-color: $color-border-grey
     .table
-      margin-left: 20px
+      padding-left: 20px
+      padding-right: 30px
       flex: 1
     .footer
       text-align: center

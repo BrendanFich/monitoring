@@ -9,6 +9,11 @@ import Dynamic from '@/components/Dynamic/Dynamic'
 import Training from '@/components/Training/Training'
 import EventMonitoring from '@/components/EventMonitoring/EventMonitoring'
 import Regulations from '@/components/Regulations/Regulations'
+import Overview from '@/components/Regulations/Overview/Overview'
+import AddrRegulation from '@/components/Regulations/AddrRegulation/AddrRegulation'
+import SearchAll from '@/components/Regulations/SearchAll/SearchAll'
+import Detail from '@/components/Regulations/Detail/Detail'
+
 import SolveCase from '@/components/SolveCase/SolveCase'
 import Dispute from '@/components/Dispute/Dispute'
 import Medication from '@/components/Medication/Medication'
@@ -73,7 +78,30 @@ export default new Router({
         {
           name: 'Regulations',
           path: 'regulations',
-          component: Regulations
+          redirect: '/home/regulations/overview',
+          component: Regulations,
+          children: [
+            {
+              name: 'Overview',
+              path: 'overview',
+              component: Overview
+            },
+            {
+              name: 'AddrRegulation',
+              path: 'addrRegulation',
+              component: AddrRegulation
+            },
+            {
+              name: 'SearchAll',
+              path: 'searchAll',
+              component: SearchAll
+            },
+            {
+              name: 'Detail',
+              path: 'detail',
+              component: Detail
+            }
+          ]
         },
         {
           name: 'SolveCase',
