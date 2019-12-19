@@ -1,5 +1,5 @@
 <template>
-  <div class="detail">
+  <div class="regulationsDetails">
     <div class="location">
       <i class="el-icon-location-outline"></i>
       <span class="text">当前位置：首页 - 规章制度知识库 - 法律法规详细</span>
@@ -54,7 +54,7 @@ export default {
 <style lang="sass" scoped>
 @import '~assets/sass/variable'
 @import '~assets/sass/mixin'
-.detail
+.regulationsDetails
   height: 100%
   display: flex
   flex-direction: column

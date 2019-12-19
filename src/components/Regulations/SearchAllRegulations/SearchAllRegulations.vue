@@ -1,5 +1,5 @@
 <template>
-  <div class="searchAll">
+  <div class="searchAllRegulations">
     <div class="location">
       <i class="el-icon-location-outline"></i>
       <span class="text">当前位置：首页 - 全文搜索</span>
@@ -18,9 +18,11 @@
         </el-input>
       </div>
     </div>
-    <div class="resultText">查询结果：{{ number }}条</div>
+    <div class="resultText" v-if="tableData.length > 0">
+      查询结果：{{ number }}条
+    </div>
     <el-table
-      v-if="tableData.length>0"
+      v-if="tableData.length > 0"
       class="table"
       :data="tableData"
       style="width: 100%"
@@ -60,7 +62,7 @@
       ></el-table-column>
     </el-table>
 
-    <div class="footer" v-if="tableData.length>0">
+    <div class="footer" v-if="tableData.length > 0">
       <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
@@ -72,9 +74,10 @@
         background
       ></el-pagination>
     </div>
+
     <div class="noData" v-else>
-      <img src="">
-      <div>暂时没有找到</div>
+      <i class="icon-noData"></i>
+      <div class="text">暂时没有找到</div>
     </div>
   </div>
 </template>
@@ -83,8 +86,10 @@
 export default {
   data () {
     return {
+      currentPage: 1,
       radio: 1,
       number: 4,
+      input: '',
       tableData: [
         {
           name: '关于法律法规的指导意见',
@@ -118,14 +123,21 @@ export default {
     }
   },
   computed: {},
-  methods: {}
+  methods: {
+    handleSizeChange (val) {
+      console.log(`每页 ${val} 条`)
+    },
+    handleCurrentChange (val) {
+      console.log(`当前页: ${val}`)
+    }
+  }
 }
 </script>
 
 <style lang="sass" scoped>
 @import '~assets/sass/variable'
 @import '~assets/sass/mixin'
-.searchAll
+.searchAllRegulations
   height: 100%
   display: flex
   flex-direction: column
@@ -168,7 +180,17 @@ export default {
     margin-top: 20px
   .noData
     display: flex
+    flex-direction: column
     justify-content: center
     align-items: center
     flex: 1
+    i
+      font-size: 50px
+      line-height: 55px
+      padding: 40px
+      border-radius: 50%
+      background: #e8e8e8
+    .text
+      margin-top: 20px
+      @include font(16px, 400, $color-word-grey)
 </style>

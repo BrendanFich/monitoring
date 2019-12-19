@@ -107,5 +107,5 @@ export default {
         .el-button
           width: 100%
           height: 40px
-          @include font(18px, 400, $color-white)
+          @include font(18px, 400, $color-word-white)
 </style>

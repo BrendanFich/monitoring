@@ -8,23 +8,38 @@ import Notice from '@/components/Notice/Notice'
 import Dynamic from '@/components/Dynamic/Dynamic'
 import Training from '@/components/Training/Training'
 import EventMonitoring from '@/components/EventMonitoring/EventMonitoring'
+
 import Regulations from '@/components/Regulations/Regulations'
-import Overview from '@/components/Regulations/Overview/Overview'
-import AddrRegulation from '@/components/Regulations/AddrRegulation/AddrRegulation'
-import SearchAll from '@/components/Regulations/SearchAll/SearchAll'
-import Detail from '@/components/Regulations/Detail/Detail'
+import RegulationsOverview from '@/components/Regulations/RegulationsOverview/RegulationsOverview'
+import AddRegulation from '@/components/Regulations/AddRegulation/AddRegulation'
+import SearchAllRegulations from '@/components/Regulations/SearchAllRegulations/SearchAllRegulations'
+import RegulationsDetails from '@/components/Regulations/RegulationsDetails/RegulationsDetails'
+
+import Complaints from '@/components/Complaints/Complaints'
+import ComplaintsOverview from '@/components/Complaints/ComplaintsOverview/ComplaintsOverview'
+import ComplaintsDetails from '@/components/Complaints/ComplaintsDetails/ComplaintsDetails'
+
+import OpinionCollection from '@/components/OpinionCollection/OpinionCollection'
+import OpinionBox from '@/components/OpinionCollection/OpinionBox/OpinionBox'
+import OpinionReply from '@/components/OpinionCollection/OpinionReply/OpinionReply'
 
 import SolveCase from '@/components/SolveCase/SolveCase'
 import Dispute from '@/components/Dispute/Dispute'
 import Medication from '@/components/Medication/Medication'
 import Purchase from '@/components/Purchase/Purchase'
-import Complaints from '@/components/Complaints/Complaints'
 import Survey from '@/components/Survey/Survey'
-import OpinionCollection from '@/components/OpinionCollection/OpinionCollection'
 import Plan from '@/components/Plan/Plan'
 import ShareInfo from '@/components/ShareInfo/ShareInfo'
 import BigDataReport from '@/components/BigDataReport/BigDataReport'
 import OfficeMailbox from '@/components/OfficeMailbox/OfficeMailbox'
+
+import SystemMaint from '@/components/SystemMaint/SystemMaint'
+import DeptManage from '@/components/SystemMaint/DeptManage/DeptManage'
+import MenuAuthority from '@/components/SystemMaint/MenuAuthority/MenuAuthority'
+import ParamsConfig from '@/components/SystemMaint/ParamsConfig/ParamsConfig'
+import RolesMange from '@/components/SystemMaint/RolesMange/RolesMange'
+import UserMange from '@/components/SystemMaint/UserMange/UserMange'
+import UserRolesAuthority from '@/components/SystemMaint/UserRolesAuthority/UserRolesAuthority'
 
 Vue.use(Router)
 
@@ -78,28 +93,64 @@ export default new Router({
         {
           name: 'Regulations',
           path: 'regulations',
-          redirect: '/home/regulations/overview',
+          redirect: '/home/regulations/regulationsOverview',
           component: Regulations,
           children: [
             {
-              name: 'Overview',
-              path: 'overview',
-              component: Overview
+              name: 'RegulationsOverview',
+              path: 'regulationsOverview',
+              component: RegulationsOverview
             },
             {
-              name: 'AddrRegulation',
-              path: 'addrRegulation',
-              component: AddrRegulation
+              name: 'AddRegulation',
+              path: 'addRegulation',
+              component: AddRegulation
             },
             {
-              name: 'SearchAll',
-              path: 'searchAll',
-              component: SearchAll
+              name: 'SearchAllRegulations',
+              path: 'searchAllRegulations',
+              component: SearchAllRegulations
             },
             {
-              name: 'Detail',
-              path: 'detail',
-              component: Detail
+              name: 'RegulationsDetails',
+              path: 'regulationsDetails',
+              component: RegulationsDetails
+            }
+          ]
+        },
+        {
+          name: 'Complaints',
+          path: 'complaints',
+          redirect: '/home/complaints/complaintsOverview',
+          component: Complaints,
+          children: [
+            {
+              name: 'ComplaintsOverview',
+              path: 'complaintsOverview',
+              component: ComplaintsOverview
+            },
+            {
+              name: 'ComplaintsDetails',
+              path: 'complaintsDetails',
+              component: ComplaintsDetails
+            }
+          ]
+        },
+        {
+          name: 'OpinionCollection',
+          path: 'opinionCollection',
+          redirect: '/home/opinionCollection/OpinionBox',
+          component: OpinionCollection,
+          children: [
+            {
+              name: 'OpinionBox',
+              path: 'opinionBox',
+              component: OpinionBox
+            },
+            {
+              name: 'OpinionReply',
+              path: 'opinionReply',
+              component: OpinionReply
             }
           ]
         },
@@ -124,19 +175,9 @@ export default new Router({
           component: Purchase
         },
         {
-          name: 'Complaints',
-          path: 'complaints',
-          component: Complaints
-        },
-        {
           name: 'Survey',
           path: 'survey',
           component: Survey
-        },
-        {
-          name: 'OpinionCollection',
-          path: 'opinionCollection',
-          component: OpinionCollection
         },
         {
           name: 'Plan',
@@ -157,6 +198,44 @@ export default new Router({
           name: 'OfficeMailbox',
           path: 'officeMailbox',
           component: OfficeMailbox
+        },
+        {
+          name: 'SystemMaint',
+          path: 'systemMaint',
+          redirect: '/home/systemMaint/deptManage',
+          component: SystemMaint,
+          children: [
+            {
+              name: 'DeptManage',
+              path: 'deptManage',
+              component: DeptManage
+            },
+            {
+              name: 'MenuAuthority',
+              path: 'menuAuthority',
+              component: MenuAuthority
+            },
+            {
+              name: 'ParamsConfig',
+              path: 'paramsConfig',
+              component: ParamsConfig
+            },
+            {
+              name: 'RolesMange',
+              path: 'rolesMange',
+              component: RolesMange
+            },
+            {
+              name: 'UserMange',
+              path: 'userMange',
+              component: UserMange
+            },
+            {
+              name: 'UserRolesAuthority',
+              path: 'userRolesAuthority',
+              component: UserRolesAuthority
+            }
+          ]
         }
       ]
     }

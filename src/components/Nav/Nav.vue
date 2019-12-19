@@ -86,6 +86,11 @@ export default {
           name: '政策法规',
           path: '',
           icon: 'icon-law'
+        },
+        {
+          name: '系统维护',
+          path: '/home/systemMaint',
+          icon: 'el-icon-s-tools'
         }
       ],
       navList1: [

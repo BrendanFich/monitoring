@@ -1,12 +1,12 @@
 <template>
-  <div class="overview">
+  <div class="regulationsOverview">
     <div class="location">
       <i class="el-icon-location-outline"></i>
       <span class="text">当前位置：首页 - 规章制度知识库</span>
     </div>
     <div class="operating">
       <div class="left">
-        <el-button class="btn" size="mini" @click="linkTo('/home/regulations/addrRegulation')">
+        <el-button class="btn" size="mini" @click="linkTo('/home/regulations/addRegulation')">
           <i class="icon-add"></i> 新增
         </el-button>
         <el-button class="btn" size="mini">
@@ -15,13 +15,13 @@
         <el-button class="btn" size="mini">
           <i class="icon-delete"></i> 删除
         </el-button>
-        <el-button class="btn" size="mini" @click="linkTo('/home/regulations/searchAll')">
+        <el-button class="btn" size="mini" @click="linkTo('/home/regulations/searchAllRegulations')">
           <i class="icon-searchAll"></i> 全文搜索
         </el-button>
         <el-button class="btn" size="mini">
           <i class="icon-class"></i> 分类管理
         </el-button>
-        <el-button class="btn" size="mini" @click="linkTo('/home/regulations/detail')">
+        <el-button class="btn" size="mini" @click="linkTo('/home/regulations/RegulationsDetails')">
           <i class="icon-eye"></i> 查看
         </el-button>
       </div>
@@ -151,7 +151,7 @@ export default {
 <style lang="sass" scoped>
 @import '~assets/sass/variable'
 @import '~assets/sass/mixin'
-.overview
+.regulationsOverview
   height: 100%
   display: flex
   flex-direction: column

@@ -1,5 +1,5 @@
 <template>
-  <div class="addrRegulation">
+  <div class="addRegulation">
     <div class="location">
       <i class="el-icon-location-outline"></i>
       <span class="text">当前位置：首页 - 规章制度知识库 - 内容维护</span>
@@ -100,7 +100,7 @@ export default {
 <style lang="sass" scoped>
 @import '~assets/sass/variable'
 @import '~assets/sass/mixin'
-.addrRegulation
+.addRegulation
   height: 100%
   display: flex
   flex-direction: column

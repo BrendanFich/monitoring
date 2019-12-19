@@ -1,7 +1,7 @@
 <template>
-  <div class="opinionCollection">
+  <div class="deptManage">
     <aside>
-      <div class="pageTitle">意见箱</div>
+      <div class="pageTitle">系统维护</div>
       <ul class="tabs">
         <li
           v-for="(item, index) in tabsData"
@@ -17,7 +17,7 @@
     <main>
       <div class="location">
         <i class="el-icon-location-outline"></i>
-        <span class="text">当前位置：首页 - 意见收集箱</span>
+        <span class="text">当前位置：首页 - 系统维护 - {{location}}</span>
       </div>
       <router-view></router-view>
     </main>
@@ -30,40 +30,34 @@ export default {
     return {
       sideIndex: 0,
       tabsData: [
-        { name: '意见收集箱', path: '/home/opinionCollection/OpinionBox' },
-        { name: '意见回复', path: '/home/opinionCollection/OpinionReply' }
-      ],
-      ruleForm: {
-        name: '',
-        phone: '',
-        topic: '',
-        isOpen: true,
-        content: ''
-      },
-      rules: {
-        name: [{ required: true, message: '请输入姓名', trigger: 'blur' }],
-        phone: [{ required: true, message: '请输入电话号码', trigger: 'blur' }],
-        content: [
-          { required: true, message: '请输入意见内容', trigger: 'blur' }
-        ]
+        { name: '部门管理', path: '/home/systemMaint/deptManage' },
+        { name: '角色管理', path: '/home/systemMaint/rolesMange' },
+        { name: '用户管理', path: '/home/systemMaint/userMange' },
+        { name: '参数配置', path: '/home/systemMaint/paramsConfig' },
+        { name: '系统菜单权限管理', path: '/home/systemMaint/menuAuthority' },
+        { name: '用户角色权限管理', path: '/home/systemMaint/userRolesAuthority' }
+      ]
+    }
+  },
+  computed: {
+    location () {
+      switch (this.$route.name) {
+        case 'DeptManage' :
+          return '部门管理'
+        case 'RolesMange' :
+          return '角色管理'
+        case 'UserMange' :
+          return '用户管理'
+        case 'ParamsConfig' :
+          return '参数配置'
+        case 'MenuAuthority' :
+          return '系统菜单权限管理'
+        case 'UserRolesAuthority' :
+          return '用户角色权限管理'
       }
     }
   },
-  computed: {},
   methods: {
-    submitForm (formName) {
-      this.$refs[formName].validate(valid => {
-        if (valid) {
-          alert('submit!')
-        } else {
-          console.log('error submit!!')
-          return false
-        }
-      })
-    },
-    resetForm (formName) {
-      this.$refs[formName].resetFields()
-    },
     linkTo (index, path) {
       this.sideIndex = index
       this.$router.push(path)
@@ -75,7 +69,7 @@ export default {
 <style lang="sass" scoped>
 @import '~assets/sass/variable'
 @import '~assets/sass/mixin'
-.opinionCollection
+.deptManage
   aside
     width: 200px
     height: calc(100vh - 110px)
