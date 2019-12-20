@@ -1,7 +1,10 @@
 <template>
   <div class="training">
     <aside>
-      <div class="pageTitle">培训讲座</div>
+      <div class="pageTitle">
+        <span>监察动态</span>
+        <i class="el-icon-d-arrow-left" @click="back"></i>
+      </div>
     </aside>
     <main>
       <div class="location">
@@ -68,7 +71,7 @@ export default {
   data () {
     return {
       activeIndex: 1,
-      currentPage: 5,
+      currentPage: 1,
       data1: [
         {
           name: '联网纪检监察',
@@ -127,6 +130,9 @@ export default {
     },
     handleCurrentChange (val) {
       console.log(`当前页: ${val}`)
+    },
+    back () {
+      this.$router.go(-1)
     }
   }
 }
@@ -142,12 +148,16 @@ export default {
     background: $color-bg-menu
     padding-top: 10px
     .pageTitle
-      width: 100%
+      width: calc(100% - 36px)
       height: 55px
-      text-align: center
-      line-height: 55px
       background: $color-deep-blue
+      padding: 0 18px
+      display: flex
+      justify-content: space-between
+      align-items: center
       @include font(18px, 400, $color-word-white)
+      i
+        cursor: pointer
   main
     display: flex
     flex-direction: column
@@ -184,6 +194,7 @@ export default {
           text-align: center
           .videoName
             margin-top: 20px
+            @include font(15px, 800, $color-word-black)
     .videoCover
       width: 225px
       height: 126px
@@ -232,6 +243,7 @@ export default {
               line-height: 25px
       .content2
         margin-top: 3px
+        margin-right: 180px
         li
           height: 50px
           line-height: 50px

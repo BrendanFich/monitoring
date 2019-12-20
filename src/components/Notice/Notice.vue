@@ -1,7 +1,10 @@
 <template>
   <div class="notice">
     <aside>
-      <div class="pageTitle">公告通知</div>
+      <div class="pageTitle">
+        <span>公告通知</span>
+        <i class="el-icon-d-arrow-left" @click="back"></i>
+      </div>
       <ul class="tabs">
         <li
           v-for="(item, index) in tabsData"
@@ -34,9 +37,9 @@
           @current-change="handleCurrentChange"
           :current-page.sync="currentPage"
           :page-sizes="[10, 20, 30, 40]"
-          :page-size="100"
+          :page-size="10"
           layout="sizes, prev, pager, next"
-          :total="1000"
+          :total="500"
           background
         >
         </el-pagination>
@@ -50,7 +53,7 @@ export default {
   data () {
     return {
       activeIndex: 0,
-      currentPage: 5,
+      currentPage: 1,
       tabsData: ['通知', '公告', '行政公示', '行政许可'],
       mainList: [
         {
@@ -76,6 +79,9 @@ export default {
     },
     handleCurrentChange (val) {
       console.log(`当前页: ${val}`)
+    },
+    back () {
+      this.$router.go(-1)
     }
   }
 }
@@ -91,12 +97,16 @@ export default {
     background: $color-bg-menu
     padding-top: 10px
     .pageTitle
-      width: 100%
+      width: calc(100% - 36px)
       height: 55px
-      text-align: center
-      line-height: 55px
       background: $color-deep-blue
+      padding: 0 18px
+      display: flex
+      justify-content: space-between
+      align-items: center
       @include font(18px, 400, $color-word-white)
+      i
+        cursor: pointer
     .tabs
       li
         position: relative

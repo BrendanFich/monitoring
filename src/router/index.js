@@ -2,12 +2,17 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/Login/Login'
 import Home from '@/components/Home/Home'
+import Help from '@/components/Help/Help'
 import Nav from '@/components/Nav/Nav'
 import LectureHall from '@/components/LectureHall/LectureHall'
-import Notice from '@/components/Notice/Notice'
+import LectureOverview from '@/components/LectureHall/LectureOverview/LectureOverview'
+import AddLecture from '@/components/LectureHall/AddLecture/AddLecture'
+import SearchAllLecture from '@/components/LectureHall/SearchAllLecture/SearchAllLecture'
+
 import Dynamic from '@/components/Dynamic/Dynamic'
-import Training from '@/components/Training/Training'
-import EventMonitoring from '@/components/EventMonitoring/EventMonitoring'
+import DynamicOverview from '@/components/Dynamic/DynamicOverview/DynamicOverview'
+import AddDynamic from '@/components/Dynamic/AddDynamic/AddDynamic'
+import SearchAllDynamic from '@/components/Dynamic/SearchAllDynamic/SearchAllDynamic'
 
 import Regulations from '@/components/Regulations/Regulations'
 import RegulationsOverview from '@/components/Regulations/RegulationsOverview/RegulationsOverview'
@@ -23,6 +28,9 @@ import OpinionCollection from '@/components/OpinionCollection/OpinionCollection'
 import OpinionBox from '@/components/OpinionCollection/OpinionBox/OpinionBox'
 import OpinionReply from '@/components/OpinionCollection/OpinionReply/OpinionReply'
 
+import Training from '@/components/Training/Training'
+import EventMonitoring from '@/components/EventMonitoring/EventMonitoring'
+import Notice from '@/components/Notice/Notice'
 import SolveCase from '@/components/SolveCase/SolveCase'
 import Dispute from '@/components/Dispute/Dispute'
 import Medication from '@/components/Medication/Medication'
@@ -61,6 +69,11 @@ export default new Router({
       component: Home,
       children: [
         {
+          name: 'Help',
+          path: 'help',
+          component: Help
+        },
+        {
           name: 'Nav',
           path: 'nav',
           component: Nav
@@ -68,7 +81,25 @@ export default new Router({
         {
           name: 'LectureHall',
           path: 'lectureHall',
-          component: LectureHall
+          redirect: '/home/lectureHall/lectureOverview',
+          component: LectureHall,
+          children: [
+            {
+              name: 'LectureOverview',
+              path: 'lectureOverview',
+              component: LectureOverview
+            },
+            {
+              name: 'AddLecture',
+              path: 'addLecture',
+              component: AddLecture
+            },
+            {
+              name: 'SearchAllLecture',
+              path: 'searchAllLecture',
+              component: SearchAllLecture
+            }
+          ]
         },
         {
           name: 'Notice',
@@ -78,7 +109,25 @@ export default new Router({
         {
           name: 'Dynamic',
           path: 'dynamic',
-          component: Dynamic
+          redirect: '/home/dynamic/dynamicOverview',
+          component: Dynamic,
+          children: [
+            {
+              name: 'DynamicOverview',
+              path: 'dynamicOverview',
+              component: DynamicOverview
+            },
+            {
+              name: 'AddDynamic',
+              path: 'addDynamic',
+              component: AddDynamic
+            },
+            {
+              name: 'SearchAllDynamic',
+              path: 'searchAllDynamic',
+              component: SearchAllDynamic
+            }
+          ]
         },
         {
           name: 'Training',

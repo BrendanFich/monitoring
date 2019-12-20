@@ -17,7 +17,7 @@
     <main>
       <div class="location">
         <i class="el-icon-location-outline"></i>
-        <span class="text">当前位置：首页 - 系统维护 - {{location}}</span>
+        <span class="text">当前位置：系统维护 - {{location}}</span>
       </div>
       <router-view></router-view>
     </main>
@@ -55,6 +55,28 @@ export default {
         case 'UserRolesAuthority' :
           return '用户角色权限管理'
       }
+    }
+  },
+  created () {
+    switch (this.$route.name) {
+      case 'DeptManage' :
+        this.sideIndex = 0
+        break
+      case 'RolesMange' :
+        this.sideIndex = 1
+        break
+      case 'UserMange' :
+        this.sideIndex = 2
+        break
+      case 'ParamsConfig' :
+        this.sideIndex = 3
+        break
+      case 'MenuAuthority' :
+        this.sideIndex = 4
+        break
+      case 'UserRolesAuthority' :
+        this.sideIndex = 5
+        break
     }
   },
   methods: {

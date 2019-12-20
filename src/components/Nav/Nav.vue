@@ -1,6 +1,6 @@
 <template>
   <div class="nav">
-    <aside>
+    <!-- <aside>
       <ul>
         <router-link
           tag="li"
@@ -12,11 +12,11 @@
           <span class="title">{{ item.name }}</span>
         </router-link>
       </ul>
-    </aside>
+    </aside> -->
     <main>
       <div class="baseInfo">
         <img src="./img/avatar.png" />
-        <div class="text">上午好！{{userName}}。2019.12.3 星期一</div>
+        <div class="text">{{period}}{{userName}}。{{date}} {{str}}</div>
       </div>
       <div class="navBox">
         <div class="boxTitle">
@@ -57,45 +57,49 @@
 </template>
 
 <script>
+import time from '@/assets/js/time'
 export default {
   data () {
     return {
+      period: time.getPeriod(),
+      date: time.getDate(),
+      str: time.getWeek(),
       userName: '王涛聪',
-      menuList: [
-        {
-          name: '监督指南',
-          path: '',
-          icon: 'icon-guidebook'
-        },
-        {
-          name: '审查监督',
-          path: '',
-          icon: 'icon-check'
-        },
-        {
-          name: '监督预警',
-          path: '',
-          icon: 'icon-light'
-        },
-        {
-          name: '代表意见',
-          path: '',
-          icon: 'icon-opinions'
-        },
-        {
-          name: '政策法规',
-          path: '',
-          icon: 'icon-law'
-        },
-        {
-          name: '系统维护',
-          path: '/home/systemMaint',
-          icon: 'el-icon-s-tools'
-        }
-      ],
+      // menuList: [
+      //   {
+      //     name: '监督指南',
+      //     path: '',
+      //     icon: 'icon-guidebook'
+      //   },
+      //   {
+      //     name: '审查监督',
+      //     path: '',
+      //     icon: 'icon-check'
+      //   },
+      //   {
+      //     name: '监督预警',
+      //     path: '',
+      //     icon: 'icon-light'
+      //   },
+      //   {
+      //     name: '代表意见',
+      //     path: '',
+      //     icon: 'icon-opinions'
+      //   },
+      //   {
+      //     name: '政策法规',
+      //     path: '',
+      //     icon: 'icon-law'
+      //   },
+      //   {
+      //     name: '系统维护',
+      //     path: '/home/systemMaint',
+      //     icon: 'el-icon-s-tools'
+      //   }
+      // ],
       navList1: [
         {
-          name: '监督小讲堂',
+          name: '监察小讲堂',
           path: 'lectureHall',
           img: require('./img/1-1.png')
         },
@@ -186,6 +190,8 @@ export default {
   },
   computed: {
   },
+  created () {
+  },
   methods: {
     linkTo (idnex) {
 
@@ -198,25 +204,25 @@ export default {
 @import '~assets/sass/variable'
 @import '~assets/sass/mixin'
 .nav
-  aside
-    width: 200px
-    height: calc(100vh - 100px)
-    background: $color-bg-menu
-    ul>li
-      height: 70px
-      padding-left: 38px
-      cursor: pointer
-      @include font(15px, 400, $color-word-black)
-      display: flex
-      align-items: center
-      i
-        margin-right: 12px
-        @include font(24px, 400, $color-primary)
-      &:hover
-        background: $color-menu-hover
+  // aside
+  //   width: 200px
+  //   height: calc(100vh - 100px)
+  //   background: $color-bg-menu
+  //   ul>li
+  //     height: 70px
+  //     padding-left: 38px
+  //     cursor: pointer
+  //     @include font(15px, 400, $color-word-black)
+  //     display: flex
+  //     align-items: center
+  //     i
+  //       margin-right: 12px
+  //       @include font(24px, 400, $color-primary)
+  //     &:hover
+  //       background: $color-menu-hover
   main
     position: absolute
-    left: 200px
+    left: 100px
     top: 100px
     width: calc(100% - 200px)
     height: calc(100vh - 100px)

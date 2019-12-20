@@ -1,6 +1,6 @@
 <template>
   <div class="rolesMange">
-    <div class="operating">
+    <div class="top">
       <el-button class="btn" size="mini">
         <i class="icon-add"></i> 添加
       </el-button>
@@ -23,15 +23,64 @@
         'border-bottom': '1px solid #DDDDDDFF'
       }"
     >
-      <el-table-column type="selection" width="100px" align="center"></el-table-column>
-      <el-table-column prop="deptName" label="科室名称" align="center">
+      <el-table-column
+        type="selection"
+        align="center"
+      ></el-table-column>
+      <el-table-column
+        prop="roleIndex"
+        label="角色序号"
+        align="center"
+      ></el-table-column>
+      <el-table-column
+        prop="roleName"
+        label="角色名称"
+        align="center"
+      ></el-table-column>
+      <el-table-column
+        prop="roleRemark"
+        label="角色备注"
+        align="center"
+      ></el-table-column>
+      <el-table-column
+        prop="linkIcon"
+        label="关联图标"
+        align="center"
+      ></el-table-column>
+      <el-table-column
+        prop="isStop"
+        label="是否停用"
+        align="center"
+      ></el-table-column>
+      <el-table-column
+        prop="isDelete"
+        label="是否删除"
+        align="center"
+      ></el-table-column>
+      <el-table-column
+        prop="createdTime"
+        label="创建时间"
+        align="center"
+      ></el-table-column>
+      <el-table-column
+        prop="createNo"
+        label="创建人工号"
+        align="center"
+      ></el-table-column>
+      <el-table-column
+        prop="updateTime"
+        label="更新时间"
+        align="center"
+      ></el-table-column>
+      <el-table-column label="操作" align="center">
         <template slot-scope="scope">
-          <span><i class="icon-blueAdd"></i>{{ scope.row.deptName }}</span>
+          <i
+            class="operating el-icon-edit-outline"
+            @click="edit(scope.row)"
+          ></i>
+          <i class="operating el-icon-delete" @click="remove(scope.row)"></i>
         </template>
       </el-table-column>
-      <el-table-column prop="deptCode" label="科室编码" align="center"></el-table-column>
-      <el-table-column prop="fatherName" label="父科室名称" align="center"></el-table-column>
-      <el-table-column prop="fatherCode" label="父科室编码" align="center"></el-table-column>
     </el-table>
     <div class="footer">
       <el-pagination
@@ -56,21 +105,37 @@ export default {
       currentPage: 1,
       tableData: [
         {
-          deptName: '临床科室',
-          deptCode: '00012',
-          fatherName: '临床总科室',
-          fatherCode: '10012'
+          roleIndex: '1',
+          roleName: '管理员',
+          roleRemark: '--',
+          linkIcon: '--',
+          isStop: '0',
+          isDelete: '0',
+          createdTime: '2019-12-01 03:21',
+          createNo: '0',
+          updateTime: '2019-12-01 03:21'
         },
         {
-          deptName: '临床科室',
-          deptCode: '00012',
-          fatherName: '临床总科室',
-          fatherCode: '10012'
+          roleIndex: '2',
+          roleName: '管理员',
+          roleRemark: '--',
+          linkIcon: '--',
+          isStop: '0',
+          isDelete: '0',
+          createdTime: '2019-12-01 03:21',
+          createNo: '0',
+          updateTime: '2019-12-01 03:21'
         }
       ]
     }
   },
   methods: {
+    edit (rowData) {
+      console.log('edit')
+    },
+    remove (rowData) {
+      console.log('remove')
+    },
     handleSizeChange (val) {
       console.log(`每页 ${val} 条`)
     },
@@ -88,8 +153,9 @@ export default {
   display: flex
   flex-direction: column
   height: calc(100% - 60px)
-  .operating
-    margin: 0 118px 10px 30px
+  padding: 0 30px 0 20px
+  .top
+    margin: 0 90px 10px 10px
     display: flex
     justify-content: space-between
     align-items: center
@@ -114,9 +180,24 @@ export default {
         border-radius: 0 22px 22px 0
         background-color: $color-bg-white
   .table
-    padding-left: 20px
-    padding-right: 30px
     flex: 1
+    >>>span
+      display: flex
+      align-items: center
+      justify-content: center
+      i
+        display: block
+        @include font(16px, 400, $color-deep-blue)
+        margin-right: 5px
+    .icon-blueAdd
+      margin-right: 10px
+      margin-bottom: 2px
+      font-size: 18px
+    .operating
+      font-size: 18px
+      cursor: pointer
+      padding: 3px
+      margin: 0 5px
   .footer
     text-align: center
     margin-bottom: 30px
