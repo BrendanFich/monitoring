@@ -12,10 +12,10 @@
       class="ruleForm"
     >
       <el-form-item label="标题" prop="title">
-        <el-input v-model="ruleForm.title" style="width:350px"></el-input>
+        <el-input v-model="ruleForm.title" style="width:360px"></el-input>
       </el-form-item>
       <el-form-item label="类别" prop="type">
-        <el-select v-model="ruleForm.type" style="width:350px">
+        <el-select v-model="ruleForm.type" style="width:360px">
           <el-option label="学习文档" value="1"></el-option>
           <el-option label="安全指南" value="2"></el-option>
           <el-option label="管理制度" value="3"></el-option>
@@ -26,30 +26,36 @@
           v-model="ruleForm.year"
           type="year"
           placeholder="选择年"
-          style="width: 350px"
+          style="width: 360px"
         >
         </el-date-picker>
       </el-form-item>
       <el-form-item label="上传文件">
         <el-upload
           class="upload-demo"
-          style="width: 350px"
+          style="width:360px"
           action="https://jsonplaceholder.typicode.com/posts/"
           :on-preview="handlePreview"
           :on-remove="handleRemove"
           :before-remove="beforeRemove"
+          drag
           multiple
           :limit="3"
           :on-exceed="handleExceed"
           :file-list="fileList"
         >
+          <i class="el-icon-upload"></i>
+          <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
+          <div class="el-upload__tip" slot="tip" style="line-height:10px">
+            只能上传jpg/png文件，且不超过500kb1
+          </div>
           <!-- <el-button size="small" type="primary">点击上传</el-button> -->
-          <div class="upload">
+          <!-- <div class="upload">
             <i class="icon-annex"></i>添加附件
           </div>
           <div slot="tip" class="el-upload__tip" style="line-height: 10px">
             只能上传excel/word/pdf文件，且不超过5mb
-          </div>
+          </div> -->
         </el-upload>
       </el-form-item>
       <el-form-item label="内容" prop="content">
@@ -73,8 +79,7 @@
 export default {
   data () {
     return {
-      fileList: [
-      ],
+      fileList: [],
       ruleForm: {
         title: '',
         type: '',
@@ -97,7 +102,11 @@ export default {
       console.log(file)
     },
     handleExceed (files, fileList) {
-      this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`)
+      this.$message.warning(
+        `当前限制选择 3 个文件，本次选择了 ${
+          files.length
+        } 个文件，共选择了 ${files.length + fileList.length} 个文件`
+      )
     },
     beforeRemove (file, fileList) {
       return this.$confirm(`确定移除 ${file.name}？`)
@@ -145,5 +154,4 @@ export default {
     color: $color-word-blue
     cursor: pointer
     display: inline-block
-
 </style>
