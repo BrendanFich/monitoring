@@ -6,10 +6,10 @@
         <li
           v-for="(item, index) in tabsData"
           :key="index"
-          :class="{ active: sideIndex === index }"
+          :class="{ active: $route.fullPath === item.path }"
           @click="linkTo(index,item.path)"
         >
-          <div class="mark" v-if="sideIndex === index"></div>
+          <div class="mark" v-if="$route.fullPath === item.path"></div>
           {{ item.name }}
         </li>
       </ul>
