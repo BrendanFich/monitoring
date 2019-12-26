@@ -1,8 +1,6 @@
 <template>
   <div class="solveCase">
-    <aside>
-      <div class="pageTitle">案件查办</div>
-    </aside>
+    <EmptySideBar title="案件查办"></EmptySideBar>
     <main>
       <div class="location">
         <i class="el-icon-location-outline"></i>
@@ -38,7 +36,9 @@
 </template>
 
 <script>
+import EmptySideBar from '@/base/EmptySideBar/EmptySideBar'
 export default {
+  components: {EmptySideBar},
   data () {
     return {
       activeIndex: 0,
@@ -76,18 +76,6 @@ export default {
 @import '~assets/sass/variable'
 @import '~assets/sass/mixin'
 .solveCase
-  aside
-    width: 200px
-    height: calc(100vh - 110px)
-    background: $color-bg-menu
-    padding-top: 10px
-    .pageTitle
-      width: 100%
-      height: 55px
-      text-align: center
-      line-height: 55px
-      background: $color-deep-blue
-      @include font(18px, 400, $color-word-white)
   main
     position: absolute
     left: 200px

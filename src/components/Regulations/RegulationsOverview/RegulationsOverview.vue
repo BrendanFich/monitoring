@@ -6,22 +6,22 @@
     </div>
     <div class="operating">
       <div class="left">
-        <el-button class="btn" size="mini" @click="linkTo('/home/regulations/addRegulation')">
+        <el-button class="whiteBtn" size="mini" @click="linkTo('/home/regulations/addRegulation')">
           <i class="icon-add"></i> 新增
         </el-button>
-        <el-button class="btn" size="mini">
+        <el-button class="whiteBtn" size="mini">
           <i class="icon-change"></i> 修改
         </el-button>
-        <el-button class="btn" size="mini">
+        <el-button class="whiteBtn" size="mini">
           <i class="icon-delete"></i> 删除
         </el-button>
-        <el-button class="btn" size="mini" @click="linkTo('/home/regulations/searchAllRegulations')">
+        <el-button class="whiteBtn" size="mini" @click="linkTo('/home/regulations/searchAllRegulations')">
           <i class="icon-searchAll"></i> 全文搜索
         </el-button>
-        <el-button class="btn" size="mini">
+        <el-button class="whiteBtn" size="mini">
           <i class="icon-class"></i> 分类管理
         </el-button>
-        <el-button class="btn" size="mini" @click="linkTo('/home/regulations/RegulationsDetails')">
+        <el-button class="whiteBtn" size="mini" @click="linkTo('/home/regulations/RegulationsDetails')">
           <i class="icon-eye"></i> 查看
         </el-button>
       </div>
@@ -155,29 +155,13 @@ export default {
   height: 100%
   display: flex
   flex-direction: column
-  .location
-    margin: 20px 0 28px 29px
-    @include font(14px, 400, $color-word-grey)
-    i
-      @include font(14px, 600, $color-deep-blue)
   .operating
-    margin: 0 0 10px 20px
+    margin-bottom: 10px
     display: flex
     justify-content: space-between
     align-items: center
-    .left
-      .btn
-        @include font(14px, 400, $color-word-black)
-        padding: 8px 10px
-        >>>span
-          display: flex
-          align-items: center
-          i
-            display: block
-            @include font(16px, 400, $color-deep-blue)
-            margin-right: 5px
     .right
-      margin-right: 64px
+      margin-right: 34px
       li
         display: inline-block
         @include font(14px, 400, $color-deep-blue)
@@ -187,8 +171,6 @@ export default {
         background-color: $color-border-grey
   .table
     flex: 1
-    padding-left: 20px
-    padding-right: 30px
   .footer
     text-align: center
     margin-bottom: 30px

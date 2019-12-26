@@ -3,10 +3,7 @@
     <aside>
       <div class="pageTitle">
         <span>法律法规库</span>
-        <div>
-          <i class="el-icon-refresh" @click="refresh"></i>
-          <i class="el-icon-d-arrow-left" @click="back"></i>
-        </div>
+        <i class="el-icon-d-arrow-left" @click="back"></i>
       </div>
       <el-menu
         default-active="1-3-2"
@@ -67,7 +64,6 @@ export default {
   },
   computed: {},
   methods: {
-    refresh () {},
     back () {
       this.$router.go(-1)
     }
@@ -82,7 +78,8 @@ export default {
   aside
     width: 200px
     height: calc(100vh - 110px)
-    background: $color-bg-menu
+    background: $color-bg-white
+    border-right: 1px solid $color-border-grey
     padding-top: 10px
     .pageTitle
       width: calc(100% - 36px)
@@ -105,6 +102,7 @@ export default {
     position: absolute
     left: 200px
     top: 100px
-    width: calc(100% - 200px)
-    height: calc(100vh - 100px)
+    width: calc(100% - 260px)
+    height: calc(100vh - 120px)
+    padding: 20px 30px 0
 </style>

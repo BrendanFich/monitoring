@@ -80,7 +80,6 @@ export default {
 @import '~assets/sass/mixin'
 .opinionBox
   .form
-    margin: 0 30px 0 17px
     >>>.el-input__inner
       width: 250px
     >>>.el-textarea__inner

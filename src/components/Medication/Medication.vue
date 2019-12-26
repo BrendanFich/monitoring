@@ -1,8 +1,6 @@
 <template>
   <div class="medication">
-    <aside>
-      <div class="pageTitle">阳光用药</div>
-    </aside>
+    <EmptySideBar title="阳光用药"></EmptySideBar>
     <main>
       <div class="location">
         <i class="el-icon-location-outline"></i>
@@ -38,7 +36,9 @@
 </template>
 
 <script>
+import EmptySideBar from '@/base/EmptySideBar/EmptySideBar'
 export default {
+  components: {EmptySideBar},
   data () {
     return {
       activeIndex: 0,

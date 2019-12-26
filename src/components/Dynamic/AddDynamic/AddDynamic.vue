@@ -8,7 +8,7 @@
       :model="ruleForm"
       :rules="rules"
       ref="ruleForm"
-      label-width="100px"
+      label-width="80px"
       class="ruleForm"
     >
       <el-form-item label="标题" prop="title">
@@ -26,7 +26,7 @@
         </el-date-picker>
       </el-form-item>
       <el-form-item label="上传文件">
-        <div class="update" @click="update"><i class="icon-annex"></i>添加附件</div>
+        <div class="upload" @click="upload"><i class="icon-annex"></i>添加附件</div>
       </el-form-item>
       <el-form-item label="内容" prop="content">
         <el-input type="textarea" v-model="ruleForm.content" rows="10"></el-input>
@@ -79,8 +79,8 @@ export default {
     back () {
       this.$router.go(-1)
     },
-    update () {
-      console.log('update')
+    upload () {
+      console.log('upload')
     }
   }
 }
@@ -93,11 +93,7 @@ export default {
   height: 100%
   display: flex
   flex-direction: column
-  .location
-    margin: 20px 0 28px 29px
-    @include font(14px, 400, $color-word-grey)
-    i
-      @include font(14px, 600, $color-deep-blue)
+  padding: 20px 30px 0
   .ruleForm
     >>>.el-form-item__content
       width: 950px
@@ -105,7 +101,7 @@ export default {
     text-align: center
     margin-bottom: 30px
     margin-top: 20px
-  .update
+  .upload
     color: $color-word-blue
     cursor: pointer
     display: inline-block

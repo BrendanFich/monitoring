@@ -1,8 +1,6 @@
 <template>
   <div class="officeMailbox">
-    <aside>
-      <div class="pageTitle">办公邮箱</div>
-    </aside>
+    <EmptySideBar title="办公邮箱"></EmptySideBar>
     <main>
       <div class="location">
         <i class="el-icon-location-outline"></i>
@@ -19,7 +17,9 @@
 </template>
 
 <script>
+import EmptySideBar from '@/base/EmptySideBar/EmptySideBar'
 export default {
+  components: {EmptySideBar},
   data () {
     return {
       data: [

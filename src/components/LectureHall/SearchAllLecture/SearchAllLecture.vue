@@ -1,14 +1,16 @@
 <template>
   <div class="searchAllLecture">
-    <div class="location">
-      <i class="el-icon-location-outline"></i>
-      <span class="text">当前位置：首页 - 监察小讲堂 - 全文搜索</span>
-    </div>
-    <div class="searchBox">
-      <el-radio-group v-model="radio" class="redio">
-        <el-radio :label="1">法规名称</el-radio>
-        <el-radio :label="2">法规内容</el-radio>
-        <el-radio :label="3">法发文编号</el-radio>
+    <EmptySideBar title="监察小讲堂"></EmptySideBar>
+    <main>
+      <div class="location">
+        <i class="el-icon-location-outline"></i>
+        <span class="text">当前位置：首页 - 监察小讲堂 - 全文搜索</span>
+      </div>
+      <div class="searchBox">
+      <el-radio-group v-model="radio" class="radio">
+        <el-radio :label="1">学习文档</el-radio>
+        <el-radio :label="2">安全指南</el-radio>
+        <el-radio :label="3">管理制度</el-radio>
       </el-radio-group>
       <el-divider></el-divider>
       <div class="searchInput">
@@ -61,7 +63,6 @@
         align="center"
       ></el-table-column>
     </el-table>
-
     <div class="footer" v-if="tableData.length > 0">
       <el-pagination
         @size-change="handleSizeChange"
@@ -74,16 +75,16 @@
         background
       ></el-pagination>
     </div>
-
-    <div class="noData" v-else>
-      <i class="icon-noData"></i>
-      <div class="text">暂时没有找到</div>
-    </div>
+    <NoData v-else></NoData>
+    </main>
   </div>
 </template>
 
 <script>
+import NoData from '@/base/NoData/NoData'
+import EmptySideBar from '@/base/EmptySideBar/EmptySideBar'
 export default {
+  components: {NoData, EmptySideBar},
   data () {
     return {
       currentPage: 1,
@@ -138,59 +139,44 @@ export default {
 @import '~assets/sass/variable'
 @import '~assets/sass/mixin'
 .searchAllLecture
-  height: 100%
-  display: flex
-  flex-direction: column
-  .location
-    margin: 20px 0 28px 29px
-    @include font(14px, 400, $color-word-grey)
-    i
-      @include font(14px, 600, $color-deep-blue)
-  .searchBox
-    margin: 0 28px 0 18px
-    border: 1px solid $color-border-grey
-    padding: 34px 20px
-    .input-with-select
-      width: 450px
-      >>>.el-input__inner
-        border-radius: 22px 0 0 22px
-        padding-left: 20px
-      >>>.el-input-group__append
-        @include font(20px, 500, $color-primary)
-        border-radius: 0 22px 22px 0
-        background-color: $color-bg-white
-    .redio
-      margin-left: 32px
-    .searchInput
-      display: flex
-      align-items: center
-      label
-        width: 80px
-        margin-left: 40px
-  .resultText
-    margin-left: 30px
-    margin-top: 28px
-    @include font(16px, 400, $color-word-blue)
-  .table
-    padding: 12px 28px 0 15px
-    flex: 1
-  .footer
-    text-align: center
-    margin-bottom: 30px
-    margin-top: 20px
-  .noData
+  main
+    position: absolute
+    left: 200px
+    top: 100px
+    width: calc(100% - 260px)
+    height: calc(100vh - 120px)
     display: flex
     flex-direction: column
-    justify-content: center
-    align-items: center
-    flex: 1
-    i
-      font-size: 50px
-      line-height: 55px
-      padding: 40px
-      border-radius: 50%
-      background: #e8e8e8
-    .text
+    padding: 20px 30px 0
+    .searchBox
+      border: 1px solid $color-border-grey
+      padding: 34px 20px
+      .input-with-select
+        width: 450px
+        >>>.el-input__inner
+          border-radius: 22px 0 0 22px
+          padding-left: 20px
+        >>>.el-input-group__append
+          @include font(20px, 500, $color-primary)
+          border-radius: 0 22px 22px 0
+          background-color: $color-bg-white
+      .radio
+        margin-left: 32px
+      .searchInput
+        display: flex
+        align-items: center
+        label
+          width: 80px
+          margin-left: 40px
+    .resultText
+      margin-left: 30px
+      margin-top: 28px
+      @include font(16px, 400, $color-word-blue)
+    .table
+      margin-top: 12px
+      flex: 1
+    .footer
+      text-align: center
+      margin-bottom: 30px
       margin-top: 20px
-      @include font(16px, 400, $color-word-grey)
 </style>

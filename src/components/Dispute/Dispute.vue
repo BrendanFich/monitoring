@@ -1,8 +1,6 @@
 <template>
   <div class="dispute">
-    <aside>
-      <div class="pageTitle">医患纠纷</div>
-    </aside>
+    <EmptySideBar title="医患纠纷"></EmptySideBar>
     <main>
       <div class="location">
         <i class="el-icon-location-outline"></i>
@@ -42,7 +40,9 @@
 </template>
 
 <script>
+import EmptySideBar from '@/base/EmptySideBar/EmptySideBar'
 export default {
+  components: {EmptySideBar},
   data () {
     return {
       showBtn: true,

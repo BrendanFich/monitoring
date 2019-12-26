@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Container from '@/base/Container/Container'
 import Login from '@/components/Login/Login'
 import Home from '@/components/Home/Home'
 import Help from '@/components/Help/Help'
 import Nav from '@/components/Nav/Nav'
-import LectureHall from '@/components/LectureHall/LectureHall'
+
 import LectureOverview from '@/components/LectureHall/LectureOverview/LectureOverview'
 import AddLecture from '@/components/LectureHall/AddLecture/AddLecture'
 import SearchAllLecture from '@/components/LectureHall/SearchAllLecture/SearchAllLecture'
@@ -35,9 +36,22 @@ import SolveCase from '@/components/SolveCase/SolveCase'
 import Dispute from '@/components/Dispute/Dispute'
 import Medication from '@/components/Medication/Medication'
 import Purchase from '@/components/Purchase/Purchase'
-import Survey from '@/components/Survey/Survey'
-import Plan from '@/components/Plan/Plan'
+
+import PlanOverview from '@/components/Plan/PlanOverview/PlanOverview'
+import PlanEdit from '@/components/Plan/PlanEdit/PlanEdit'
+
 import ShareInfo from '@/components/ShareInfo/ShareInfo'
+import RegisterResources from '@/components/ShareInfo/RegisterResources/RegisterResources'
+import ClassifyManage from '@/components/ShareInfo/ClassifyManage/ClassifyManage'
+import PublishResources from '@/components/ShareInfo/PublishResources/PublishResources'
+import OperateLog from '@/components/ShareInfo/OperateLog/OperateLog'
+
+import Survey from '@/components/Survey/Survey'
+import SurveyAdd from '@/components/Survey/SurveyAdd/SurveyAdd'
+import SurveyList from '@/components/Survey/SurveyList/SurveyList'
+import SurveyManage from '@/components/Survey/SurveyManage/SurveyManage'
+import SurveyStatistics from '@/components/Survey/SurveyStatistics/SurveyStatistics'
+
 import BigDataReport from '@/components/BigDataReport/BigDataReport'
 import OfficeMailbox from '@/components/OfficeMailbox/OfficeMailbox'
 
@@ -82,7 +96,7 @@ export default new Router({
           name: 'LectureHall',
           path: 'lectureHall',
           redirect: '/home/lectureHall/lectureOverview',
-          component: LectureHall,
+          component: Container,
           children: [
             {
               name: 'LectureOverview',
@@ -226,17 +240,76 @@ export default new Router({
         {
           name: 'Survey',
           path: 'survey',
-          component: Survey
+          redirect: '/home/survey/surveyList',
+          component: Survey,
+          children: [
+            {
+              name: 'SurveyList',
+              path: 'surveyList',
+              component: SurveyList
+            },
+            {
+              name: 'SurveyAdd',
+              path: 'surveyAdd',
+              component: SurveyAdd
+            },
+            {
+              name: 'SurveyManage',
+              path: 'surveyManage',
+              component: SurveyManage
+            },
+            {
+              name: 'SurveyStatistics',
+              path: 'surveyStatistics',
+              component: SurveyStatistics
+            }
+          ]
         },
         {
           name: 'Plan',
           path: 'plan',
-          component: Plan
+          redirect: '/home/plan/planOverview',
+          component: Container,
+          children: [
+            {
+              name: 'PlanOverview',
+              path: 'planOverview',
+              component: PlanOverview
+            },
+            {
+              name: 'PlanEdit',
+              path: 'planEdit',
+              component: PlanEdit
+            }
+          ]
         },
         {
           name: 'ShareInfo',
           path: 'shareInfo',
-          component: ShareInfo
+          redirect: '/home/shareInfo/registerResources',
+          component: ShareInfo,
+          children: [
+            {
+              name: 'RegisterResources',
+              path: 'registerResources',
+              component: RegisterResources
+            },
+            {
+              name: 'ClassifyManage',
+              path: 'classifyManage',
+              component: ClassifyManage
+            },
+            {
+              name: 'PublishResources',
+              path: 'publishResources',
+              component: PublishResources
+            },
+            {
+              name: 'OperateLog',
+              path: 'operateLog',
+              component: OperateLog
+            }
+          ]
         },
         {
           name: 'BigDataReport',

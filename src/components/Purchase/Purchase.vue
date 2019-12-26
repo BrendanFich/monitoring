@@ -1,8 +1,6 @@
 <template>
   <div class="purchase">
-    <aside>
-      <div class="pageTitle">阳光采购</div>
-    </aside>
+    <EmptySideBar title="阳光用药"></EmptySideBar>
     <main>
       <div class="location">
         <i class="el-icon-location-outline"></i>
@@ -10,16 +8,16 @@
       </div>
       <div class="operating">
         <div class="left">
-          <el-button class="btn" size="mini">
+          <el-button class="whiteBtn" size="mini">
             <i class="icon-export"></i> 导出
           </el-button>
-          <el-button class="btn" size="mini">
+          <el-button class="whiteBtn" size="mini">
             <i class="icon-eye"></i> 显示
           </el-button>
-          <el-button class="btn" size="mini">
+          <el-button class="whiteBtn" size="mini">
             <i class="icon-save"></i> 保存
           </el-button>
-          <el-button class="btn" size="mini">
+          <el-button class="whiteBtn" size="mini">
             <i class="icon-historyInfo"></i> 历史信息
           </el-button>
         </div>
@@ -64,9 +62,12 @@
 </template>
 
 <script>
+import EmptySideBar from '@/base/EmptySideBar/EmptySideBar'
 export default {
+  components: {EmptySideBar},
   data () {
     return {
+      input: '',
       currentPage: 1,
       tableData: [
         {
@@ -106,49 +107,20 @@ export default {
 @import '~assets/sass/variable'
 @import '~assets/sass/mixin'
 .purchase
-  aside
-    width: 200px
-    height: calc(100vh - 110px)
-    background: $color-bg-menu
-    padding-top: 10px
-    .pageTitle
-      width: 100%
-      height: 55px
-      line-height: 55px
-      background: $color-deep-blue
-      text-align: center
-      @include font(18px, 400, $color-word-white)
-      i
-        cursor: pointer
   main
     position: absolute
     left: 200px
     top: 100px
-    width: calc(100% - 200px)
-    height: calc(100vh - 100px)
+    width: calc(100% - 260px)
+    height: calc(100vh - 120px)
     display: flex
     flex-direction: column
-    .location
-      margin: 20px 0 28px 29px
-      @include font(14px, 400, $color-word-grey)
-      i
-        @include font(14px, 600, $color-deep-blue)
+    padding: 20px 30px 0
     .operating
-      margin: 0 0 10px 20px
+      margin-bottom: 10px
       display: flex
       justify-content: space-between
       align-items: center
-      .left
-        .btn
-          @include font(14px, 400, $color-word-black)
-          padding: 8px 10px
-          >>>span
-            display: flex
-            align-items: center
-            i
-              display: block
-              @include font(16px, 400, $color-deep-blue)
-              margin-right: 5px
       .right
         margin-right: 64px
         .input-with-select
@@ -162,8 +134,6 @@ export default {
             border-radius: 0 22px 22px 0
             background-color: $color-bg-white
     .table
-      padding-left: 20px
-      padding-right: 30px
       flex: 1
     .footer
       text-align: center

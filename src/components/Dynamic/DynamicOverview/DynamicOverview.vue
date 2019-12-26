@@ -155,13 +155,9 @@ export default {
   height: 100%
   display: flex
   flex-direction: column
-  .location
-    margin: 20px 0 28px 29px
-    @include font(14px, 400, $color-word-grey)
-    i
-      @include font(14px, 600, $color-deep-blue)
+  padding: 20px 30px 0
   .operating
-    margin: 0 0 10px 20px
+    margin-bottom: 10px
     display: flex
     justify-content: space-between
     align-items: center
@@ -186,8 +182,6 @@ export default {
       .el-divider
         background-color: $color-border-grey
   .table
-    padding-left: 20px
-    padding-right: 30px
     flex: 1
   .footer
     text-align: center

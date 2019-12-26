@@ -1,7 +1,10 @@
 <template>
   <div class="eventMonitoring">
     <aside>
-      <div class="pageTitle">事项监察</div>
+      <div class="pageTitle">
+        <span>事项监察</span>
+        <i class="el-icon-d-arrow-left" @click="back"></i>
+      </div>
       <ul class="tabs">
         <li
           v-for="(item, index) in tabsData"
@@ -20,16 +23,16 @@
         <span class="text">当前位置：首页 - 事项监察</span>
       </div>
       <div class="operating">
-        <el-button class="btn" size="mini">
+        <el-button class="whiteBtn" size="mini">
           <i class="icon-finished"></i> 完成
         </el-button>
-        <el-button class="btn" size="mini">
+        <el-button class="whiteBtn" size="mini">
           <i class="icon-copy"></i> 复制新增
         </el-button>
-        <el-button class="btn" size="mini">
+        <el-button class="whiteBtn" size="mini">
           <i class="icon-history"></i> 浏览记录
         </el-button>
-        <el-button class="btn" size="mini">
+        <el-button class="whiteBtn" size="mini">
           <i class="icon-track"></i> 事项跟踪
         </el-button>
       </div>
@@ -227,6 +230,9 @@ export default {
     },
     handleCurrentChange (val) {
       console.log(`当前页: ${val}`)
+    },
+    back () {
+      this.$router.go(-1)
     }
   }
 }
@@ -239,19 +245,24 @@ export default {
   aside
     width: 200px
     height: calc(100vh - 110px)
-    background: $color-bg-menu
+    background: $color-bg-white
+    border-right: 1px solid $color-border-grey
     padding-top: 10px
     .pageTitle
-      width: 100%
+      width: calc(100% - 36px)
       height: 55px
-      text-align: center
-      line-height: 55px
       background: $color-deep-blue
+      padding: 0 18px
+      display: flex
+      justify-content: space-between
+      align-items: center
       @include font(18px, 400, $color-word-white)
+      i
+        cursor: pointer
     .tabs
       li
         position: relative
-        width: 100%
+        width: calc(100% - 50px)
         height: 42px
         line-height: 42px
         background: transparent
@@ -273,31 +284,14 @@ export default {
     position: absolute
     left: 200px
     top: 100px
-    width: calc(100% - 200px)
-    height: calc(100vh - 100px)
+    width: calc(100% - 260px)
+    height: calc(100vh - 120px)
+    padding: 20px 30px 0
     // display: flex
     // flex-direction: column
-    .location
-      margin: 20px 0 20px 29px
-      @include font(14px, 400, $color-word-grey)
-      i
-        @include font(14px, 600, $color-deep-blue)
     .operating
-      margin-left: 16px
       margin-bottom: 10px
-      .btn
-        @include font(14px, 400, $color-word-black)
-        padding: 8px 10px
-        >>>span
-          display: flex
-          align-items: center
-          i
-            display: block
-            @include font(16px, 400, $color-deep-blue)
-            margin-right: 5px
     .table
-      padding-left: 16px
-      padding-right: 30px
       margin-top: 3px
       >>>.cell
         display: flex
@@ -308,7 +302,6 @@ export default {
           margin-right: 5px
     .tips
       margin-top: 17px
-      margin-left: 23px
       display: flex
       li
         margin-right: 27px
@@ -319,11 +312,10 @@ export default {
     .breakDown
       .title
         @include font(16px, 800, $color-word-black)
-        margin: 36px 0 18px 22px
+        margin: 36px 0 18px
       .tabs
         display: flex
         align-items: center
-        margin-left: 16px
         .item
           text-align: center
           width: 82px

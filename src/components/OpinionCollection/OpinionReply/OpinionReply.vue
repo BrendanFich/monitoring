@@ -122,8 +122,6 @@ export default {
 @import '~assets/sass/mixin'
 .opinionReply
   .table
-    padding-right: 30px
-    padding-left: 14px
     .onOpene
       color: #FF3333FF
   >>>.el-dialog

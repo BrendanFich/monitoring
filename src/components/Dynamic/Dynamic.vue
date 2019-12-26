@@ -67,7 +67,8 @@ export default {
   aside
     width: 200px
     height: calc(100vh - 110px)
-    background: $color-bg-menu
+    background: $color-bg-white
+    border-right: 1px solid $color-border-grey
     padding-top: 10px
     .pageTitle
       width: calc(100% - 36px)

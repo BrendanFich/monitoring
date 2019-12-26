@@ -1,11 +1,6 @@
 <template>
   <div class="training">
-    <aside>
-      <div class="pageTitle">
-        <span>监察动态</span>
-        <i class="el-icon-d-arrow-left" @click="back"></i>
-      </div>
-    </aside>
+    <EmptySideBar title="监察动态"></EmptySideBar>
     <main>
       <div class="location">
         <i class="el-icon-location-outline"></i>
@@ -67,9 +62,12 @@
 </template>
 
 <script>
+import EmptySideBar from '@/base/EmptySideBar/EmptySideBar'
 export default {
+  components: {EmptySideBar},
   data () {
     return {
+      input: '',
       activeIndex: 1,
       currentPage: 1,
       data1: [
@@ -142,22 +140,6 @@ export default {
 @import '~assets/sass/variable'
 @import '~assets/sass/mixin'
 .training
-  aside
-    width: 200px
-    height: calc(100vh - 110px)
-    background: $color-bg-menu
-    padding-top: 10px
-    .pageTitle
-      width: calc(100% - 36px)
-      height: 55px
-      background: $color-deep-blue
-      padding: 0 18px
-      display: flex
-      justify-content: space-between
-      align-items: center
-      @include font(18px, 400, $color-word-white)
-      i
-        cursor: pointer
   main
     display: flex
     flex-direction: column
@@ -165,16 +147,11 @@ export default {
     position: absolute
     left: 200px
     top: 100px
-    width: calc(100% - 200px)
-    height: calc(100vh - 100px)
-    .location
-      margin: 20px 0 20px 29px
-      @include font(14px, 400, $color-word-grey)
-      i
-        @include font(14px, 600, $color-deep-blue)
+    width: calc(100% - 260px)
+    height: calc(100vh - 120px)
+    padding: 20px 30px 0
     .input-with-select
       width: 450px
-      margin-left: 26px
       >>>.el-input__inner
         border-radius: 22px 0 0 22px
         padding-left: 20px
@@ -183,7 +160,7 @@ export default {
         border-radius: 0 22px 22px 0
         background-color: $color-bg-white
     .new
-      margin: 20px 0 0 26px
+      margin-top: 15px
       .title
         @include font(16px, 800, $color-word-black)
       ul
@@ -209,7 +186,6 @@ export default {
     .all
       flex: 1
       margin-top: 30px
-      margin-left: 26px
       .tabs
         display: flex
         align-items: center

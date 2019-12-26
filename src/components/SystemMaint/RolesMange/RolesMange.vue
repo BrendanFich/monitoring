@@ -1,7 +1,7 @@
 <template>
   <div class="rolesMange">
     <div class="top">
-      <el-button class="btn" size="mini">
+      <el-button class="whiteBtn" size="mini">
         <i class="icon-add"></i> 添加
       </el-button>
       <el-input
@@ -159,16 +159,6 @@ export default {
     display: flex
     justify-content: space-between
     align-items: center
-    .btn
-      @include font(14px, 400, $color-word-black)
-      padding: 8px 10px
-      >>>span
-        display: flex
-        align-items: center
-        i
-          display: block
-          @include font(16px, 400, $color-deep-blue)
-          margin-right: 5px
     .input-with-select
       width: 450px
       margin-left: 26px

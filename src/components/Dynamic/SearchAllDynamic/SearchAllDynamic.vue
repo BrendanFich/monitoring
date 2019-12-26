@@ -141,11 +141,7 @@ export default {
   height: 100%
   display: flex
   flex-direction: column
-  .location
-    margin: 20px 0 28px 29px
-    @include font(14px, 400, $color-word-grey)
-    i
-      @include font(14px, 600, $color-deep-blue)
+  padding: 20px 30px 0
   .searchBox
     margin: 0 28px 0 18px
     border: 1px solid $color-border-grey
