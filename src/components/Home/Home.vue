@@ -5,7 +5,7 @@
         <div class="title">南海区医院联网纪检检察系统</div>
         <ul class="nav">
           <li
-            :class="{ active: $route.name === 'Nav' }"
+            :class="{ active: $route.fullPath.indexOf('systemMaint') === -1 }"
             @click="linkTo('/home')"
           >
             <i class="icon-index"></i>首页

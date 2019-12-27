@@ -330,10 +330,12 @@ export default {
         .el-progress
           width: 150px
     .icon-pass
-      font-size: 18px
+      font-size: 20px
+      color: $color-pass-green
     .icon-nopass
       font-size: 20px
+      color: $color-nopass-red
     .icon-cancelCheck
-      font-size: 18px
+      font-size: 20px
       color: #4F99F7FF
 </style>

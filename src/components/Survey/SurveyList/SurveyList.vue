@@ -43,7 +43,7 @@
       <el-table-column prop="isPass" label="通过审核" align="center">
         <template slot-scope="scope">
           <i :class="{'icon-pass': scope.row.isPass, 'icon-nopass': !scope.row.isPass}"></i>
-          <span>{{scope.row.isPass ? '通过' : '未通过'}}</span>
+          <span style="line-height:20px">{{scope.row.isPass ? '通过' : '未通过'}}</span>
         </template>
       </el-table-column>
       <el-table-column label="操作" align="center">
@@ -122,6 +122,13 @@ export default {
   flex-direction: column
   .table
     flex: 1
+    >>>.cell
+      display: flex
+      justify-content: center
+      align-items: center
+      text-align: start
+      i
+        margin-right: 5px
   .footer
     text-align: center
     margin-bottom: 30px
@@ -132,7 +139,7 @@ export default {
     padding: 5px
     color: $color-ban-red
   .icon-pass
-    color: $color-pass-green
+    @include font(20px, 400, $color-pass-green)
   .icon-nopass
-    color: $color-nopass-red
+    @include font(20px, 400, $color-nopass-red)
 </style>
