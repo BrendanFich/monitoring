@@ -1,11 +1,11 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import App from './App'
 import router from './router'
 import { MessageBox, Upload, Progress, Tree, Divider, Message, Transfer, Dialog, Checkbox, Menu, Submenu, MenuItem, Dropdown, DropdownMenu, DropdownItem, Radio, RadioGroup, RadioButton, Button, Input, Switch, Image, Select, Option, Table, TableColumn, Pagination, Form, FormItem, DatePicker, Collapse, CollapseItem, TabPane, Tabs, Tag } from 'element-ui'
 import 'assets/sass/element-variables.scss'
 import 'assets/sass/iconfonts.sass'
+import App from './App'
 
 Vue.component(Message.name, Message)
 Vue.use(Upload)
