@@ -205,7 +205,6 @@ export default {
 @import '~assets/sass/variable'
 @import '~assets/sass/mixin'
 .userRolesAuthority
-  padding: 0 54px 0 17px
   height: calc(100% - 60px)
   display: flex
   .left

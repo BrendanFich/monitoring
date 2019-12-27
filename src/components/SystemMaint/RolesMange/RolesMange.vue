@@ -153,9 +153,8 @@ export default {
   display: flex
   flex-direction: column
   height: calc(100% - 60px)
-  padding: 0 30px 0 20px
   .top
-    margin: 0 90px 10px 10px
+    margin: 0 90px 10px 0
     display: flex
     justify-content: space-between
     align-items: center

@@ -95,7 +95,8 @@ export default {
   aside
     width: 200px
     height: calc(100vh - 110px)
-    background: $color-bg-menu
+    background: $color-bg-white
+    border-right: 1px solid $color-border-grey
     padding-top: 10px
     .pageTitle
       width: 100%
@@ -107,7 +108,7 @@ export default {
     .tabs
       li
         position: relative
-        width: 100%
+        width: calc(100% - 50px)
         height: 42px
         line-height: 42px
         background: transparent
@@ -129,13 +130,9 @@ export default {
     position: absolute
     left: 200px
     top: 100px
-    width: calc(100% - 200px)
-    height: calc(100vh - 100px)
+    width: calc(100% - 260px)
+    height: calc(100vh - 120px)
+    padding: 20px 30px 0
     // display: flex
     // flex-direction: column
-    .location
-      margin: 20px 0 20px 29px
-      @include font(14px, 400, $color-word-grey)
-      i
-        @include font(14px, 600, $color-deep-blue)
 </style>

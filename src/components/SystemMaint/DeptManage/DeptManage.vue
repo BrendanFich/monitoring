@@ -120,7 +120,7 @@ export default {
   flex-direction: column
   height: calc(100% - 60px)
   .top
-    margin: 0 118px 10px 30px
+    margin: 0 118px 10px 0
     display: flex
     justify-content: space-between
     align-items: center
@@ -145,8 +145,6 @@ export default {
         border-radius: 0 22px 22px 0
         background-color: $color-bg-white
   .table
-    padding-left: 20px
-    padding-right: 30px
     flex: 1
     >>>span
       display: flex

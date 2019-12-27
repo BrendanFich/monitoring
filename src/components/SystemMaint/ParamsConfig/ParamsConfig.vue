@@ -51,8 +51,6 @@ export default {
 @import '~assets/sass/mixin'
 .paramsConfig
   .form
-    margin-top: 30px
-    margin-left: 30px
     width: 600px
     >>>.el-form-item__label
       color: $color-word-black
