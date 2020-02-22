@@ -144,9 +144,9 @@ export default {
   main
     position: absolute
     left: 200px
-    top: 100px
+    top: 0
     width: calc(100% - 200px)
-    height: calc(100vh - 100px)
+    height: 100%
     .location
       margin: 20px 0 20px 29px
       @include font(14px, 400, $color-word-grey)

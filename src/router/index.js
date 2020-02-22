@@ -3,9 +3,9 @@ import Router from 'vue-router'
 import Container from '@/base/Container/Container'
 import Login from '@/components/Login/Login'
 import Home from '@/components/Home/Home'
-import Help from '@/components/Help/Help'
-import Nav from '@/components/Nav/Nav'
+import Menu from '@/components/Menu/Menu'
 
+import LectureHall from '@/components/LectureHall/LectureHall'
 import LectureOverview from '@/components/LectureHall/LectureOverview/LectureOverview'
 import AddLecture from '@/components/LectureHall/AddLecture/AddLecture'
 import SearchAllLecture from '@/components/LectureHall/SearchAllLecture/SearchAllLecture'
@@ -79,24 +79,19 @@ export default new Router({
     {
       name: 'Home',
       path: '/home',
-      redirect: '/home/nav',
+      redirect: '/home/menu',
       component: Home,
       children: [
         {
-          name: 'Help',
-          path: 'help',
-          component: Help
-        },
-        {
-          name: 'Nav',
-          path: 'nav',
-          component: Nav
+          name: 'Menu',
+          path: 'menu',
+          component: Menu
         },
         {
           name: 'LectureHall',
           path: 'lectureHall',
           redirect: '/home/lectureHall/lectureOverview',
-          component: Container,
+          component: LectureHall,
           children: [
             {
               name: 'LectureOverview',
@@ -323,8 +318,8 @@ export default new Router({
         },
         {
           name: 'SystemMaint',
-          path: 'systemMaint',
-          redirect: '/home/systemMaint/deptManage',
+          path: '/systemMaint',
+          redirect: '/systemMaint/deptManage',
           component: SystemMaint,
           children: [
             {

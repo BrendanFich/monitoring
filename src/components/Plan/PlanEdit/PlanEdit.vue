@@ -135,9 +135,9 @@ export default {
   main
     position: absolute
     left: 200px
-    top: 100px
-    width: calc(100% - 200px)
-    height: calc(100vh - 100px)
+    top: 0
+    width: calc(100% - 260px)
+    height: calc(100% - 20px)
     display: flex
     flex-direction: column
     .location

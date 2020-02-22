@@ -1,7 +1,5 @@
 <template>
   <div class="searchAllLecture">
-    <EmptySideBar title="监察小讲堂"></EmptySideBar>
-    <main>
       <div class="location">
         <i class="el-icon-location-outline"></i>
         <span class="text">当前位置：首页 - 监察小讲堂 - 全文搜索</span>
@@ -76,7 +74,6 @@
       ></el-pagination>
     </div>
     <NoData v-else></NoData>
-    </main>
   </div>
 </template>
 
@@ -139,44 +136,37 @@ export default {
 @import '~assets/sass/variable'
 @import '~assets/sass/mixin'
 .searchAllLecture
-  main
-    position: absolute
-    left: 200px
-    top: 100px
-    width: calc(100% - 260px)
-    height: calc(100vh - 120px)
-    display: flex
-    flex-direction: column
-    padding: 20px 30px 0
-    .searchBox
-      border: 1px solid $color-border-grey
-      padding: 34px 20px
-      .input-with-select
-        width: 450px
-        >>>.el-input__inner
-          border-radius: 22px 0 0 22px
-          padding-left: 20px
-        >>>.el-input-group__append
-          @include font(20px, 500, $color-primary)
-          border-radius: 0 22px 22px 0
-          background-color: $color-bg-white
-      .radio
-        margin-left: 32px
-      .searchInput
-        display: flex
-        align-items: center
-        label
-          width: 80px
-          margin-left: 40px
-    .resultText
-      margin-left: 30px
-      margin-top: 28px
-      @include font(16px, 400, $color-word-blue)
-    .table
-      margin-top: 12px
-      flex: 1
-    .footer
-      text-align: center
-      margin-bottom: 30px
-      margin-top: 20px
+  display: flex
+  flex-direction: column
+  .searchBox
+    border: 1px solid $color-border-grey
+    padding: 34px 20px
+    .input-with-select
+      width: 450px
+      >>>.el-input__inner
+        border-radius: 22px 0 0 22px
+        padding-left: 20px
+      >>>.el-input-group__append
+        @include font(20px, 500, $color-primary)
+        border-radius: 0 22px 22px 0
+        background-color: $color-bg-white
+    .radio
+      margin-left: 32px
+    .searchInput
+      display: flex
+      align-items: center
+      label
+        width: 80px
+        margin-left: 40px
+  .resultText
+    margin-left: 30px
+    margin-top: 28px
+    @include font(16px, 400, $color-word-blue)
+  .table
+    margin-top: 12px
+    flex: 1
+  .footer
+    text-align: center
+    margin-bottom: 30px
+    margin-top: 20px
 </style>

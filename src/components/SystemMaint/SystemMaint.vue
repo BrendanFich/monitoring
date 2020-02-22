@@ -30,12 +30,12 @@ export default {
     return {
       sideIndex: 0,
       tabsData: [
-        { name: '部门管理', path: '/home/systemMaint/deptManage' },
-        { name: '角色管理', path: '/home/systemMaint/rolesMange' },
-        { name: '用户管理', path: '/home/systemMaint/userMange' },
-        { name: '参数配置', path: '/home/systemMaint/paramsConfig' },
-        { name: '系统菜单权限管理', path: '/home/systemMaint/menuAuthority' },
-        { name: '用户角色权限管理', path: '/home/systemMaint/userRolesAuthority' }
+        { name: '部门管理', path: '/systemMaint/deptManage' },
+        { name: '角色管理', path: '/systemMaint/rolesMange' },
+        { name: '用户管理', path: '/systemMaint/userMange' },
+        { name: '参数配置', path: '/systemMaint/paramsConfig' },
+        { name: '系统菜单权限管理', path: '/systemMaint/menuAuthority' },
+        { name: '用户角色权限管理', path: '/systemMaint/userRolesAuthority' }
       ]
     }
   },
@@ -129,10 +129,8 @@ export default {
   main
     position: absolute
     left: 200px
-    top: 100px
+    top: 0
     width: calc(100% - 260px)
-    height: calc(100vh - 120px)
+    height: calc(100% - 20px)
     padding: 20px 30px 0
-    // display: flex
-    // flex-direction: column
 </style>

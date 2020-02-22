@@ -1,6 +1,6 @@
 <template>
   <div class="training">
-    <EmptySideBar title="监察动态"></EmptySideBar>
+    <EmptySideBar title="培训讲座"></EmptySideBar>
     <main>
       <div class="location">
         <i class="el-icon-location-outline"></i>
@@ -146,9 +146,9 @@ export default {
     overflow-y: auto
     position: absolute
     left: 200px
-    top: 100px
+    top: 0
     width: calc(100% - 260px)
-    height: calc(100vh - 120px)
+    height: calc(100% - 20px)
     padding: 20px 30px 0
     .input-with-select
       width: 450px

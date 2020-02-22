@@ -132,7 +132,7 @@ export default {
   main
     position: absolute
     left: 200px
-    top: 100px
+    top: 0
     width: calc(100% - 260px)
     height: calc(100vh - 120px)
     display: flex
